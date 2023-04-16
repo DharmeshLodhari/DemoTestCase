@@ -16,15 +16,27 @@ void main() {
   test('valid credential',(){
     LoginBloc bloc = LoginBloc();
    bool result =  bloc.checkLogin('demo@gmail.com', 'Demo@123');
-
-     expect(result, true);
+   expect(result, true);
    });
 
   test('Invalid credential',(){
     LoginBloc bloc = LoginBloc();
-    bool result =  bloc.checkLogin('demo@gmail.com', 'Demo@12345');
-
+    bool result =  bloc.checkLogin('demo123@gmail.com', 'Demo@123');
     expect(result, false);
   });
+
+  test('valid otp',(){
+    LoginBloc bloc = LoginBloc();
+    bool result =  bloc.checkOTPValid(1234);
+    expect(result, true);
+  });
+
+  test('INvalid otp',(){
+    LoginBloc bloc = LoginBloc();
+    bool result =  bloc.checkOTPValid(1284);
+    expect(result, false);
+  });
+
+
 
 }

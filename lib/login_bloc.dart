@@ -9,4 +9,10 @@ class LoginBloc {
     }
     return false;
   }
+  bool checkOTPValid(int otp){
+    if(otp == 1234){
+      return true;
+    }
+    return false;
+  }
 }
