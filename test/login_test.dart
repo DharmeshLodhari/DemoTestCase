@@ -15,7 +15,7 @@ void main() {
 
   test('valid credential',(){
     LoginBloc bloc = LoginBloc();
-   bool result =  bloc.checkLogin('demo@gmail.com', 'Demo@1234');
+   bool result =  bloc.checkLogin('demo@gmail.com', 'Demo@123');
 
      expect(result, true);
    });
