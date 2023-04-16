@@ -1,12 +1,12 @@
 on:
-  pull_request:
+  push:
     branches:
-      - dev
+      - develop
       - master
-name: "Run flutter test and analyze"
+name: "Build & Release"
 jobs:
   build:
-    name: Run flutter test and analyze
+    name: Build & Release
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
@@ -17,6 +17,12 @@ jobs:
         with:
           flutter-version: '2.8.0'
       - run: flutter pub get
-      - run: flutter analyze
-      - run: flutter test
-
+      - run: flutter pub analyze
+      - run: flutter pub test
+      - run: flutter build apk --debug
+      - name : Push to Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/debug/*"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}

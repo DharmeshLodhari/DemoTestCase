@@ -19,4 +19,12 @@ void main() {
 
      expect(result, true);
    });
+
+  test('Invalid credential',(){
+    LoginBloc bloc = LoginBloc();
+    bool result =  bloc.checkLogin('demo@gmail.com', 'Demo@12345');
+
+    expect(result, false);
+  });
+
 }
