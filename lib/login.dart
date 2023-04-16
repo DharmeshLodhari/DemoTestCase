@@ -63,7 +63,7 @@ class _LoginDemo  extends State<LoginDemo > {
                 //TODO FORGOT PASSWORD SCREEN GOES HERE
               },
               child: Text(
-                'Forgot Password',
+                'Forgot Password 123',
                 style: TextStyle(color: Colors.blue, fontSize: 15),
               ),
             ),
